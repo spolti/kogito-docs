@@ -102,6 +102,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../core/custom-functions-support.html">Custom functions for your Serverless Workflow service</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/timeouts-support.html">Timeouts in Serverless Workflow</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -250,7 +253,7 @@
     <span class="nav-text">Integrations</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../integrations/expose-metrics-to-prometheus.html">Exposing the workflow base metrics to Prometheus</a>
+    <a class="nav-link" href="../integrations/expose-metrics-to-prometheus.html">Exposing workflow base metrics to Prometheus</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../integrations/serverless-dashboard-with-runtime-data.html">Displaying workflow data in dashboards</a>
@@ -283,8 +286,17 @@
         <li class="version is-current">
           <a href="../index.html">snapshot</a>
         </li>
+        <li class="version">
+          <a href="../../1.30.0-SNAPSHOT/index.html">1.30-RC</a>
+        </li>
         <li class="version is-latest">
-          <a href="../../latest/index.html">1.27</a>
+          <a href="../../latest/index.html">1.29</a>
+        </li>
+        <li class="version">
+          <a href="../../1.28.0.Final/index.html">1.28</a>
+        </li>
+        <li class="version">
+          <a href="../../1.27.0.Final/index.html">1.27</a>
         </li>
         <li class="version">
           <a href="../../1.26.0.Final/index.html">1.26</a>
@@ -317,7 +329,10 @@
   <button class="version-menu-toggle" title="Show other versions of page">snapshot</button>
   <div class="version-menu">
     <a class="version is-current" href="orchestration-of-grpc-services.html">snapshot</a>
-    <a class="version" href="../../latest/service-orchestration/orchestration-of-grpc-services.html">1.27</a>
+    <a class="version" href="../../1.30.0-SNAPSHOT/service-orchestration/orchestration-of-grpc-services.html">1.30-RC</a>
+    <a class="version" href="../../latest/service-orchestration/orchestration-of-grpc-services.html">1.29</a>
+    <a class="version" href="../../1.28.0.Final/service-orchestration/orchestration-of-grpc-services.html">1.28</a>
+    <a class="version" href="../../1.27.0.Final/service-orchestration/orchestration-of-grpc-services.html">1.27</a>
     <a class="version" href="../../1.26.0.Final/service-orchestration/orchestration-of-grpc-services.html">1.26</a>
     <a class="version" href="../../1.25.0.Final/service-orchestration/orchestration-of-grpc-services.html">1.25</a>
     <a class="version" href="../../1.24.1.Final/service-orchestration/orchestration-of-grpc-services.html">1.24</a>
@@ -559,7 +574,7 @@ If, for any reason, your default value is semantically valid and you want the va
 </div>
 </li>
 <li>
-<p>Now you need to run the workflow application</p>
+<p>Once the server is running, you must navigate to the <code>serverless-workflow-greeting-client-rpc-quarkus</code> directory in a separate command terminal and run the workflow application by entering the following command:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">mvn clean quarkus:dev</code></pre>
@@ -567,7 +582,7 @@ If, for any reason, your default value is semantically valid and you want the va
 </div>
 </li>
 <li>
-<p>Once the workflow application is started, you can invoke the workflow instance using any http client, such as <code>curl</code></p>
+<p>Once the workflow application is started, you can invoke the workflow instance using any HTTP client, such as <code>curl</code>, from a separate command terminal.</p>
 </li>
 </ol>
 </div>
@@ -576,7 +591,7 @@ If, for any reason, your default value is semantically valid and you want the va
 <div class="listingblock">
 <div class="title">Example request</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"workflowdata" : {"name": "John", "language": "English"}}' http://localhost:8080/jsongreet</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"name": "John", "language": "English"}' http://localhost:8080/jsongreet</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -590,7 +605,7 @@ If, for any reason, your default value is semantically valid and you want the va
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"workflowdata" : {"name": "Javi", "language": "Spanish"}}' http://localhost:8080/jsongreet</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"name": "Javi", "language": "Spanish"}' http://localhost:8080/jsongreet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -602,7 +617,7 @@ If, for any reason, your default value is semantically valid and you want the va
 <div class="listingblock">
 <div class="title">Example request</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"workflowdata" : {"name": "John"}}' http://localhost:8080/jsongreetserverstream</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"name": "John"}' http://localhost:8080/jsongreetserverstream</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -617,12 +632,7 @@ If, for any reason, your default value is semantically valid and you want the va
 <div class="listingblock">
 <div class="title">Example request</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"workflowdata" : {
-                                                                                                    "helloRequests" : [
-                                                                                                                        {"name" : "Javierito", "language":"Spanish"},
-                                                                                                                        {"name" : "John", "language":"English"},
-                                                                                                                        {"name" : "Jan", "language":"Czech"}
-                                                                                                                      ]}}' http://localhost:8080/jsongreetclientstream</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"helloRequests" : [{"name" : "Javierito", "language":"Spanish"}, {"name" : "John", "language":"English"}, {"name" : "Jan", "language":"Czech"}]}' http://localhost:8080/jsongreetclientstream</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -644,12 +654,7 @@ If, for any reason, your default value is semantically valid and you want the va
 <div class="listingblock">
 <div class="title">Example request</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"workflowdata" : {
-                                                                                                    "helloRequests" : [
-                                                                                                                        {"name" : "Javierito", "language":"Spanish"},
-                                                                                                                        {"name" : "John", "language":"English"},
-                                                                                                                        {"name" : "Jan", "language":"Czech"}
-                                                                                                                      ]}}' http://localhost:8080/jsongreetbidistream</code></pre>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"helloRequests" : [{"name" : "Javierito", "language":"Spanish"},{"name" : "John", "language":"English"},{"name" : "Jan", "language":"Czech"}]}' http://localhost:8080/jsongreetbidistream</code></pre>
 </div>
 </div>
 <div class="listingblock">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>New features on 1.27 :: Kogito Serverless Workflow Guides</title>
+    <title>New features on 1.29 :: Kogito Serverless Workflow Guides</title>
     <meta name="generator" content="Antora 3.0.3">
     <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
@@ -51,7 +51,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="serverlessworkflow" data-version="1.27.0.Final">
+<div class="nav-container" data-component="serverlessworkflow" data-version="1.29.0.Final">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -100,6 +100,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="core/custom-functions-support.html">Custom functions for your Serverless Workflow service</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="core/timeouts-support.html">Timeouts in Serverless Workflow</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -135,19 +138,19 @@
     <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-overview.html">Serverless Logic Web Tools</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-github-integration.html">GitHub integration</a>
+    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-github-integration.html">Integrating your Serverless Workflow project in GitHub using Serverless Logic Web Tools</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-openshift-integration.html">OpenShift integration</a>
+    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-openshift-integration.html">Integrating your Serverless Workflow project with OpenShift using Serverless Logic Web Tools</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-redhat-application-services-integration.html">Red Hat OpenShift Application and Data Services integration</a>
+    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-redhat-application-services-integration.html">Integrating with Red Hat OpenShift Application and Data Services</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deploying projects</a>
+    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deploying your Serverless Workflow projects using Serverless Logic Web Tools</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-enable-kogito-swf-visualization.html">Kogito Serverless Workflow Visualization</a>
+    <a class="nav-link" href="tooling/serverless-logic-web-tools/serverless-logic-web-tools-enable-kogito-swf-visualization.html">Enabling Kogito Serverless Workflow Visualization in Serverless Logic Web Tools</a>
   </li>
 </ul>
   </li>
@@ -248,6 +251,9 @@
     <span class="nav-text">Integrations</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="integrations/expose-metrics-to-prometheus.html">Exposing workflow base metrics to Prometheus</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="integrations/serverless-dashboard-with-runtime-data.html">Displaying workflow data in dashboards</a>
   </li>
 </ul>
@@ -269,7 +275,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">Kogito Serverless Workflow Guides</span>
-    <span class="version">1.27</span>
+    <span class="version">1.29</span>
   </div>
   <ul class="components">
     <li class="component is-current">
@@ -278,8 +284,17 @@
         <li class="version">
           <a href="../main/index.html">snapshot</a>
         </li>
+        <li class="version">
+          <a href="../1.30.0-SNAPSHOT/index.html">1.30-RC</a>
+        </li>
         <li class="version is-current is-latest">
-          <a href="index.html">1.27</a>
+          <a href="index.html">1.29</a>
+        </li>
+        <li class="version">
+          <a href="../1.28.0.Final/index.html">1.28</a>
+        </li>
+        <li class="version">
+          <a href="../1.27.0.Final/index.html">1.27</a>
         </li>
         <li class="version">
           <a href="../1.26.0.Final/index.html">1.26</a>
@@ -308,33 +323,48 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.27</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.29</button>
   <div class="version-menu">
     <a class="version" href="../main/release_notes.html">snapshot</a>
-    <a class="version is-current" href="release_notes.html">1.27</a>
+    <a class="version" href="../1.30.0-SNAPSHOT/release_notes.html">1.30-RC</a>
+    <a class="version is-current" href="release_notes.html">1.29</a>
+    <a class="version" href="../1.28.0.Final/release_notes.html">1.28</a>
+    <a class="version" href="../1.27.0.Final/release_notes.html">1.27</a>
     <a class="version" href="../1.26.0.Final/release_notes.html">1.26</a>
     <a class="version is-missing" href="../1.25.0.Final/index.html">1.25</a>
     <a class="version is-missing" href="../1.24.1.Final/index.html">1.24</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/kiegroup/kogito-docs/edit/1.27.x/serverlessworkflow/modules/ROOT/pages/release_notes.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/kiegroup/kogito-docs/edit/1.29.x/serverlessworkflow/modules/ROOT/pages/release_notes.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">New features on 1.27</h1>
+<h1 class="page">New features on 1.29</h1>
 <div class="sect1">
 <h2 id="_notable_changes"><a class="anchor" href="#_notable_changes"></a>Notable changes</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7734">KOGITO-7734</a> - Quarkus Dev UI Workflow Instance endpoint shows testcontainers internal url</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7956">KOGITO-7956</a> - Remove workflowdata from generated swagger documentation</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7584">KOGITO-7584</a> - Review persistence for Job Service in knative</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7857">KOGITO-7857</a> - Incorporate CE SDK into Kogito Runtimes</p>
+</li>
+<li>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7837">KOGITO-7837</a> - WorkItemNotFoundException (race сondition)</p>
+</li>
+<li>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7725">KOGITO-7725</a> - Guarantee Job Service work properly even with more than one instance running.</p>
+</li>
+<li>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7665">KOGITO-7665</a> - kn workflow should verify if the cluster has Knative installed</p>
+</li>
+<li>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7647">KOGITO-7647</a> - Workflowdata input schema name should be different in the generated OpenAPI</p>
 </li>
 </ul>
 </div>
@@ -346,43 +376,25 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7862">KOGITO-7862</a> - Exclude ServerlessWorkflowCodestartTest from LTS check</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-8075">KOGITO-8075</a> - Align fabric8 with quarkus-k8s v6 client</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7842">KOGITO-7842</a> - ClassFormatError: Too many arguments in method signature in class file org/kie/kogito/app/GeneratedWorkItemHandlerConfig_Bean</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-8039">KOGITO-8039</a> - Fixes and enhancements in "Testing your workflow application using REST Assured" guide</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7705">KOGITO-7705</a> - [KSW_GUIDES] Document grpc enum behaviour</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-8007">KOGITO-8007</a> - Upgrade the version of io.quarkiverse.jackson-jq to 1.1.0</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7696">KOGITO-7696</a> - Set the proper Data Index image in the productized profile</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7971">KOGITO-7971</a> - Kogito smallrye-open-api dependencies in conflict for Quarkus LTS</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7696">KOGITO-7696</a> - [KSW Guides] KN CLI generates project with different name and extensions than other options</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7764">KOGITO-7764</a> - [KSW Guides] Guide for timeouts and job-service with Serverless Workflow</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7509">KOGITO-7509</a> - Compilation fails when using an OpenAPI document downloaded from Quarkus SwaggerUI</p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7756">KOGITO-7756</a> - [KSW-Guides] use org.acme groupId in Creating your first service guide commands</p>
 </li>
 <li>
-<p><a href="https://issues.redhat.com/browse/KOGITO-7259">KOGITO-7259</a> - [KSW-Guides] Defining an input schema for Workflows</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_known_issues"><a class="anchor" href="#_known_issues"></a>Known issue(s)</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Quarkus SVG addon fails to compile in native mode, see <a href="https://issues.redhat.com/browse/KOGITO-7874">KOGITO-7874</a></p>
-</li>
-<li>
-<p>WorkItemNotFoundException when running OpenAPI generated client in dev mode, see <a href="https://issues.redhat.com/browse/KOGITO-7878">KOGITO-7878</a></p>
-</li>
-<li>
-<p>ClassNotFoundException in enum persistence <a href="https://issues.redhat.com/browse/KOGITO-7888">KOGITO-7888</a></p>
+<p><a href="https://issues.redhat.com/browse/KOGITO-7697">KOGITO-7697</a> - Group all Jobs service jdbc flavors on one container image</p>
 </li>
 </ul>
 </div>

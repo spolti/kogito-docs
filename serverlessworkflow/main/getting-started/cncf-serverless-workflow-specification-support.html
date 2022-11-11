@@ -102,6 +102,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../core/custom-functions-support.html">Custom functions for your Serverless Workflow service</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/timeouts-support.html">Timeouts in Serverless Workflow</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -250,7 +253,7 @@
     <span class="nav-text">Integrations</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../integrations/expose-metrics-to-prometheus.html">Exposing the workflow base metrics to Prometheus</a>
+    <a class="nav-link" href="../integrations/expose-metrics-to-prometheus.html">Exposing workflow base metrics to Prometheus</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../integrations/serverless-dashboard-with-runtime-data.html">Displaying workflow data in dashboards</a>
@@ -283,8 +286,17 @@
         <li class="version is-current">
           <a href="../index.html">snapshot</a>
         </li>
+        <li class="version">
+          <a href="../../1.30.0-SNAPSHOT/index.html">1.30-RC</a>
+        </li>
         <li class="version is-latest">
-          <a href="../../latest/index.html">1.27</a>
+          <a href="../../latest/index.html">1.29</a>
+        </li>
+        <li class="version">
+          <a href="../../1.28.0.Final/index.html">1.28</a>
+        </li>
+        <li class="version">
+          <a href="../../1.27.0.Final/index.html">1.27</a>
         </li>
         <li class="version">
           <a href="../../1.26.0.Final/index.html">1.26</a>
@@ -317,7 +329,10 @@
   <button class="version-menu-toggle" title="Show other versions of page">snapshot</button>
   <div class="version-menu">
     <a class="version is-current" href="cncf-serverless-workflow-specification-support.html">snapshot</a>
-    <a class="version" href="../../latest/getting-started/cncf-serverless-workflow-specification-support.html">1.27</a>
+    <a class="version" href="../../1.30.0-SNAPSHOT/getting-started/cncf-serverless-workflow-specification-support.html">1.30-RC</a>
+    <a class="version" href="../../latest/getting-started/cncf-serverless-workflow-specification-support.html">1.29</a>
+    <a class="version" href="../../1.28.0.Final/getting-started/cncf-serverless-workflow-specification-support.html">1.28</a>
+    <a class="version" href="../../1.27.0.Final/getting-started/cncf-serverless-workflow-specification-support.html">1.27</a>
     <a class="version" href="../../1.26.0.Final/getting-started/cncf-serverless-workflow-specification-support.html">1.26</a>
     <a class="version" href="../../1.25.0.Final/getting-started/cncf-serverless-workflow-specification-support.html">1.25</a>
     <a class="version" href="../../1.24.1.Final/getting-started/cncf-serverless-workflow-specification-support.html">1.24</a>
@@ -347,7 +362,9 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Kogito does not support <a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#Retry-Definition">Retries</a>, <a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#sleep-state">Sleep State</a>, and <a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#workflow-timeouts">Timeouts</a> features of Serverless Workflow specification.</p>
+<p>Kogito does not support <a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#Retry-Definition">Retries</a>, <a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#sleep-state">Sleep
+State</a>, and has a limited support of <a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#workflow-timeouts">Timeouts</a> features of Serverless Workflow
+specification.</p>
 </div>
 </td>
 </tr>
@@ -432,7 +449,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#timeouts">Timeouts</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><img class="emoji" draggable="false" height="24px" width="24px" src="https://twemoji.maxcdn.com/2/svg/1f6a7.svg" /></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><img class="emoji" draggable="false" height="24px" width="24px" src="https://twemoji.maxcdn.com/2/svg/1f317.svg" /></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#workflow-timeouts">Workflow Timeouts</a></p></td>
 </tr>
 <tr>
@@ -459,6 +476,11 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#parallel-state">Parallel State</a> of the workflow states feature works in a single thread. This means that a Parallel State does not create one thread per branch, simulating an actual parallel behavior.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>If an exclusive property is set to `false`, you should not use the link:{spec_doc_url}#event-state[Event State] of the workflow states feature as the starting state. In case, if it is specified that way, then it will behave as if an exclusive property was set to `true`.</pre>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -494,7 +516,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Event</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><img class="emoji" draggable="false" height="24px" width="24px" src="https://twemoji.maxcdn.com/2/svg/1f315.svg" /></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><img class="emoji" draggable="false" height="24px" width="24px" src="https://twemoji.maxcdn.com/2/svg/1f317.svg" /></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/serverlessworkflow/specification/blob/0.8.x/specification.md#Event-State">Event State</a></p></td>
 </tr>
 <tr>
@@ -691,7 +713,11 @@
 <h2 id="timeouts"><a class="anchor" href="#timeouts"></a>Timeouts</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Kogito does not support Timeouts feature, however, it will be implemented in a future release.</p>
+<p>Kogito has limited support for the Timeouts feature, which covers only <strong>Callback</strong> and <strong>Switch</strong> states with events.
+Other states will be included in future releases.</p>
+</div>
+<div class="paragraph">
+<p>For more information about timeouts, see <a href="../core/timeouts-support.html" class="xref page">Timeouts on events for Serverless Workflow</a>.</p>
 </div>
 </div>
 </div>

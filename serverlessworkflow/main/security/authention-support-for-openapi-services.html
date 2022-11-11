@@ -102,6 +102,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../core/custom-functions-support.html">Custom functions for your Serverless Workflow service</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../core/timeouts-support.html">Timeouts in Serverless Workflow</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -250,7 +253,7 @@
     <span class="nav-text">Integrations</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../integrations/expose-metrics-to-prometheus.html">Exposing the workflow base metrics to Prometheus</a>
+    <a class="nav-link" href="../integrations/expose-metrics-to-prometheus.html">Exposing workflow base metrics to Prometheus</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../integrations/serverless-dashboard-with-runtime-data.html">Displaying workflow data in dashboards</a>
@@ -283,8 +286,17 @@
         <li class="version is-current">
           <a href="../index.html">snapshot</a>
         </li>
+        <li class="version">
+          <a href="../../1.30.0-SNAPSHOT/index.html">1.30-RC</a>
+        </li>
         <li class="version is-latest">
-          <a href="../../latest/index.html">1.27</a>
+          <a href="../../latest/index.html">1.29</a>
+        </li>
+        <li class="version">
+          <a href="../../1.28.0.Final/index.html">1.28</a>
+        </li>
+        <li class="version">
+          <a href="../../1.27.0.Final/index.html">1.27</a>
         </li>
         <li class="version">
           <a href="../../1.26.0.Final/index.html">1.26</a>
@@ -317,7 +329,10 @@
   <button class="version-menu-toggle" title="Show other versions of page">snapshot</button>
   <div class="version-menu">
     <a class="version is-current" href="authention-support-for-openapi-services.html">snapshot</a>
-    <a class="version" href="../../latest/security/authention-support-for-openapi-services.html">1.27</a>
+    <a class="version" href="../../1.30.0-SNAPSHOT/security/authention-support-for-openapi-services.html">1.30-RC</a>
+    <a class="version" href="../../latest/security/authention-support-for-openapi-services.html">1.29</a>
+    <a class="version" href="../../1.28.0.Final/security/authention-support-for-openapi-services.html">1.28</a>
+    <a class="version" href="../../1.27.0.Final/security/authention-support-for-openapi-services.html">1.27</a>
     <a class="version" href="../../1.26.0.Final/security/authention-support-for-openapi-services.html">1.26</a>
     <a class="version" href="../../1.25.0.Final/security/authention-support-for-openapi-services.html">1.25</a>
     <a class="version" href="../../1.24.1.Final/security/authention-support-for-openapi-services.html">1.24</a>
@@ -394,7 +409,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>If the OpenAPI specification file contains <code>securitySchemes</code> definitions, but not <a href="https://spec.openapis.org/oas/v3.1.0.html">Security Requirement Object</a> definitions, the generator can be configured to create the security requirement objects by default. In this case, for all operations without a security requirement, the default one is created. Note that the property value needs to match the name of a security scheme object definition, such as <code>http-basic-example</code> or <code>api-key-example</code> in the previous <code>securitySchemes</code> list.</p>
+<p>If the OpenAPI specification file contains <code>securitySchemes</code> definitions, but not the <a href="https://spec.openapis.org/oas/v3.1.0.html#security-requirement-object">Security Requirement Object</a> definitions, the generator is configured to create the security requirement objects by default. In this case, for all the operations without a security requirement, the default one is created. Note that the property value must match the name of a security scheme object definition, such as <code>http-basic-example</code> or <code>api-key-example</code> in the previous <code>securitySchemes</code> list.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -782,7 +797,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Unlike the <code>http basic</code>, <code>http bearer</code>, and <code>apiKey</code> security schemes, the OAuth 2.0 authentication relies on the <a href="https://quarkus.io/guides/security-openid-connect-client">Quarkus OpenId Connect (OIDC) and OAuth 2.0 Clients and Filters</a>. Therefore, you must add <a href="https://quarkus.io/guides/security-openid-connect-client#oidc-client-filter">Quarkus OIDC Client Filter Extension</a> to your project as shown in the following example:</p>
+<p>Unlike the <code>http basic</code>, <code>http bearer</code>, and <code>apiKey</code> security schemes, the OAuth 2.0 authentication relies on the <a href="https://quarkus.io/guides/security-openid-connect-client">Quarkus OpenId Connect (OIDC) and OAuth 2.0 Clients and Filters</a>. Therefore, you must add the <a href="https://quarkus.io/guides/security-openid-connect-client-reference#oidc-client-filter">Quarkus OIDC Client Filter Extension</a> to your project as shown in the following example:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example of adding Quarkus OIDC client filter extension</div>
