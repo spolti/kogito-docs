@@ -154,9 +154,6 @@
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-deploy-projects.html">Deploying your workflow projects using Serverless Logic Web Tools</a>
   </li>
-  <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../../tooling/serverless-logic-web-tools/serverless-logic-web-tools-enable-kogito-swf-visualization.html">Enabling Visualization in Serverless Logic Web Tools</a>
-  </li>
 </ul>
   </li>
 </ul>
@@ -281,6 +278,9 @@
     <a class="nav-link" href="../quarkus/build-workflow-image-with-quarkus-cli.html">Building workflow images using Quarkus CLI</a>
   </li>
   <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../quarkus/deploying-on-openshift.html">Deploying Workflows on OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../quarkus/deploying-on-minikube.html">Deploying Workflows on Minikube</a>
   </li>
   <li class="nav-item" data-depth="3">
@@ -348,6 +348,9 @@
       <ul class="versions">
         <li class="version is-current">
           <a href="../../index.html">snapshot</a>
+        </li>
+        <li class="version">
+          <a href="../../../1.40.0-SNAPSHOT/index.html">1.40-RC</a>
         </li>
         <li class="version is-latest">
           <a href="../../../latest/index.html">1.39</a>
@@ -420,6 +423,7 @@
   <button class="version-menu-toggle" title="Show other versions of page">snapshot</button>
   <div class="version-menu">
     <a class="version is-current" href="configuring-workflows.html">snapshot</a>
+    <a class="version" href="../../../1.40.0-SNAPSHOT/cloud/operator/configuring-workflows.html">1.40-RC</a>
     <a class="version" href="../../../latest/cloud/operator/configuring-workflows.html">1.39</a>
     <a class="version" href="../../../1.38.0.Final/cloud/operator/configuring-workflows.html">1.38</a>
     <a class="version" href="../../../1.37.0.Final/cloud/operator/configuring-workflows.html">1.37</a>
@@ -449,21 +453,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document describes how to configure a workflow service with the Kogito Serverless Workflow Operator.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>This feature is supported only for development profile. Configuring workflows not in development is mapped and tracked by <a href="https://issues.redhat.com/browse/KOGITO-8522">KOGITO-8522</a>. See <a href="known-issues.html" class="xref page">Kogito Serverless Workflow Operator Known Issues, Limitations and Roadmap</a></p>
-</div>
-</td>
-</tr>
-</table>
+<p>This document describes how to configure a Workflow service with the Kogito Serverless Workflow Operator.</p>
 </div>
 </div>
 </div>
@@ -471,10 +461,10 @@
 <h2 id="_editing_the_workflow_configuration"><a class="anchor" href="#_editing_the_workflow_configuration"></a>Editing the Workflow Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When the operator deploys the workflow service, it also creates a <code>ConfigMap</code> named after the <code>KogitoServerlessWorkflow</code> object with the suffix <code>-props</code>. For example, if your workflow name is <code>greeting</code>, then the <code>ConfigMap</code> name is <code>greeting-props</code>.</p>
+<p>When the operator deploys the Workflow service, it also creates a <code>ConfigMap</code> named after the <code>KogitoServerlessWorkflow</code> object with the suffix <code>-props</code>. For example, if your Workflow name is <code>greeting</code>, then the <code>ConfigMap</code> name is <code>greeting-props</code>.</p>
 </div>
 <div class="paragraph">
-<p>You can use the Kubernetes object editor of your preference to add or edit the <a href="https://en.wikipedia.org/wiki/.properties">properties</a> in the workflow configuration. Using <code>kubectl</code> you can do:</p>
+<p>You can use the Kubernetes object editor of your preference to add or edit the <a href="https://en.wikipedia.org/wiki/.properties">properties</a> in the Workflow configuration. Using <code>kubectl</code> you can do:</p>
 </div>
 <div class="listingblock">
 <div class="title">Editing the Workflow Properties</div>
@@ -486,7 +476,7 @@
 <p>Note that it&#8217;s important to respect the properties format, otherwise the operator will replace your configuration with the default one.</p>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s an example of a workflow properties:</p>
+<p>Here&#8217;s an example of a Workflow properties stored within a ConfigMap:</p>
 </div>
 <div class="listingblock">
 <div class="title">Example of a Workflow ConfigMap Properties</div>
@@ -504,7 +494,7 @@ data:
 </div>
 </div>
 <div class="paragraph">
-<p>The underlying runtime engine that executes the workflow service is based on <a href="https://quarkus.io/">Quarkus</a>. So that, you can configure the workflow as you normally would any <a href="https://quarkus.io/guides/config">Quarkus application</a>.</p>
+<p>The underlying runtime engine that executes the Workflow service is based on <a href="https://quarkus.io/">Quarkus</a>. The <code>application.properties</code> key in the ConfigMap means that you can configure the Workflow as you would any <a href="https://quarkus.io/guides/config">Quarkus application</a>.</p>
 </div>
 <div class="paragraph">
 <p>Any <a href="../../core/configuration-properties.html" class="xref page">Kogito Serverless Workflow configuration that the documentation describes</a> or general Quarkus application property can be configured using this method.</p>
@@ -515,7 +505,7 @@ data:
 <h2 id="_immutable_properties"><a class="anchor" href="#_immutable_properties"></a>Immutable properties</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A few properties can not be changed in this configuration. Usually, they are already defined in the properties file. The table below lists them.</p>
+<p>A few properties cannot be changed in this configuration. Usually, they are already defined in the properties file. The table below lists them.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. List of immutable properties</caption>
